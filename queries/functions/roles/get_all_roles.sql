@@ -1,0 +1,12 @@
+CREATE OR REPLACE FUNCTION get_all_roles()
+RETURNS TABLE (
+  id INTEGER,
+  name CHARACTER VARYING(30)
+)
+AS $$
+BEGIN
+  RETURN QUERY
+  SELECT id, name
+  FROM roles;
+END;
+$$ LANGUAGE plpgsql;
