@@ -1,0 +1,15 @@
+-- CREATE OR REPLACE FUNCTION get_all_book_author(
+--   book_id INTEGER
+-- )
+-- RETURNS TABLE (
+--   book_id INTEGER,
+--   author_id INTEGER
+-- )
+-- AS $$
+-- BEGIN
+--   RETURN QUERY
+--   SELECT book_id, author_id
+--   FROM book_author
+--   WHERE book_id = book_id;
+-- END;
+-- $$ LANGUAGE plpgsql;

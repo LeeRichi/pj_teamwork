@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION get_all_roles(
+CREATE OR REPLACE FUNCTION get_all_authors(
   sort_column TEXT DEFAULT 'id',
   sort_order TEXT DEFAULT 'ASC',
   filter_column TEXT DEFAULT NULL,
@@ -8,13 +8,13 @@ CREATE OR REPLACE FUNCTION get_all_roles(
 )
 RETURNS TABLE (
   id INTEGER,
-  name CHARACTER VARYING(30)
+  author_name CHARACTER VARYING(30)
 )
 AS $$
 BEGIN
   RETURN QUERY
-  SELECT roles.id, roles.name
-  FROM roles
+  SELECT authors.id, authors.author_name
+  FROM authors
   WHERE 
     CASE WHEN filter_column IS NOT NULL THEN
     filter_column ILIKE '%' || filter_value || '%'
@@ -23,3 +23,7 @@ BEGIN
   LIMIT page_limit OFFSET (page_number - 1) * page_limit;
 END;
 $$ LANGUAGE plpgsql;
+
+
+
+-- DROP FUNCTION IF EXISTS get_all_authors();

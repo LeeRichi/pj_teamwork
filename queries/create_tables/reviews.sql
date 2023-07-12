@@ -16,4 +16,4 @@ CREATE TABLE IF NOT EXISTS public.reviews
         ON UPDATE CASCADE
         ON DELETE CASCADE
         NOT VALID
-)
+);

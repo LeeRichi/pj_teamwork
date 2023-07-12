@@ -12,4 +12,4 @@ CREATE TABLE IF NOT EXISTS public.book_genre
         ON UPDATE CASCADE
         ON DELETE CASCADE
         NOT VALID
-)
+);
