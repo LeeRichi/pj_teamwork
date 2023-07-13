@@ -37,7 +37,6 @@ Designing REST API endpoints and database schema
 │   └── users.csv
 ├── endPoints
 │   └── endPoints.md
-├── endPoints.md
 └── queries
     ├── create_tables
     │   ├── authors.sql
