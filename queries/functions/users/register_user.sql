@@ -1,15 +1,16 @@
 CREATE OR REPLACE FUNCTION register_user(
   first_name TEXT,
   last_name TEXT,
-  password INTEGER
+  email TEXT,
+  password TEXT
 )
 RETURNS INTEGER
 AS $$
 DECLARE
   user_id INTEGER;
 BEGIN
-  INSERT INTO public.users (first_name, last_name, password)
-  VALUES (first_name, last_name, password)
+  INSERT INTO public.users (first_name, last_name, email, password)
+  VALUES (first_name, last_name, email, crypt(password, gen_salt('bf')))
   RETURNING id INTO user_id;
 
   RETURN user_id;
@@ -17,5 +18,5 @@ END;
 $$ LANGUAGE plpgsql;
 
 
-
-SELECT register_user('rich', 'lee', 123);
+--test
+SELECT register_user('dog', 'chi', 'dogchi@example.com', 'password123');
