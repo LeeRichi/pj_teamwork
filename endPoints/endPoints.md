@@ -7,7 +7,7 @@ http://example.com/api/v1
 #### Get all books
 This endpoint is used to query all books from the database.
 ```
-GET /books?search={keyword}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
+[GET] /books?search={keyword}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
 ```
 
 | Query | Type | Description | Required |
@@ -95,7 +95,7 @@ GET /books?search={keyword}&sortBy={sorting_condition}&order={order}&perPage={re
 #### Get book by id
 This end point is used to query one specific book from the database.
 ```
-GET /books/:bookId
+[GET] /books/:bookId
 ``` 
 
 | Param | Type | Description | Required |
@@ -142,7 +142,7 @@ GET /books/:bookId
 #### Create book
 This endpoint is only allowed for librarian to add a new book to the database. 
 ```
-POST /books
+[POST] /books
 ````
 The user will be authenticated using JWT token sent in the request header.
 ```
@@ -198,7 +198,7 @@ The request body should contain the following fields:
 #### Update book
 This endpoint is only allowed for librarian to update a book in the database.
 ```
-PUT /books/:bookId
+[PUT] /books/:bookId
 ```
 
 | Param | Type | Description | Required |
@@ -258,7 +258,7 @@ The user can update at least one field mentioned below. The fields that are not 
 #### Delete book
 This endpoint is only allowed for librarian to delete a book from the database.
 ```
-DELETE /books/:bookId
+[DELETE] /books/:bookId
 ````
 | Param | Type | Description | Required |
 | ----------- | ----------- | ----------- | ----------- |
@@ -282,7 +282,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Get all authors
 This endpoint is used to query all authors from the database.
 ```
-GET /authors?search={keyword}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
+[GET] /authors?search={keyword}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
 ```
 
 | Query | Type | Description | Required |
@@ -311,7 +311,7 @@ GET /authors?search={keyword}&sortBy={sorting_condition}&order={order}&perPage={
 #### Get author by id
 This endpoint is used to query one specific author from the database.
 ```
-GET /authors/:authorId
+[GET] /authors/:authorId
 ```
 
 | Param | Type | Description | Required |
@@ -329,7 +329,7 @@ GET /authors/:authorId
 #### Create author
 This endpoint is only allowed for librarian to add a new author to the database.
 ```
-POST /authors
+[POST] /authors
 ```
 
 | Param | Type | Description | Required |
@@ -365,7 +365,7 @@ The request body should contain the following fields:
 #### Update author
 This endpoint is only allowed for librarian to update an author in the database.
 ```
-PUT /authors/:authorId
+[PUT] /authors/:authorId
 ```
 
 | Param | Type | Description | Required |
@@ -397,7 +397,7 @@ The author name can be updated using the following request body:
 #### Delete author
 This endpoint is only allowed for librarian to delete an author from the database.
 ```
-DELETE /authors/:authorId
+[DELETE] /authors/:authorId
 ```
 | Param | Type | Description | Required |
 | ----------- | ----------- | ----------- | ----------- |
@@ -421,7 +421,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Get all genres
 This endpoint is used to query all genres from the database.
 ```
-GET /genres?search={keyword}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
+[GET] /genres?search={keyword}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
 ```
 
 | Query | Type | Description | Required |
@@ -450,7 +450,7 @@ GET /genres?search={keyword}&sortBy={sorting_condition}&order={order}&perPage={r
 #### Get genre by id
 This endpoint is used to query one specific genre from the database using its ID.
 ```
-GET /genres/:genreId
+[GET] /genres/:genreId
 ```
 
 | Param | Type | Description | Required |
@@ -468,7 +468,7 @@ GET /genres/:genreId
 #### Create genre
 This endpoint is only allowed for librarian to add a new genre to the database.
 ```
-POST /genres
+[POST] /genres
 ```
 The user will be authenticated using JWT token sent in the request header.
 ```
@@ -500,7 +500,7 @@ The request body should contain the following fields:
 #### Update genre
 This endpoint is only allowed for librarian to update a genre in the database.
 ```
-PUT /genres/:genreId
+[PUT] /genres/:genreId
 ```
 | Param | Type | Description | Required |
 | ----------- | ----------- | ----------- | ----------- |
@@ -531,7 +531,7 @@ The genre name can be updated using the following request body:
 #### Delete genre
 This endpoint is only allowed for librarian to delete a genre from the database.
 ```
-DELETE /genres/:genreId
+[DELETE] /genres/:genreId
 ```
 | Param | Type | Description | Required |
 | ----------- | ----------- | ----------- | ----------- |
@@ -554,7 +554,7 @@ The user will be authenticated using JWT token sent in the request header.
 ### Authentication endpoints
 #### Register
 ```
-POST /auth/register
+[POST] /auth/register
 ````
 The user can resgister as a customer of a library using the following request body and fields:
 | Value | Type | Description | Required |
@@ -584,7 +584,7 @@ For the security reason, the role of the user registering via this endpoint will
 #### Login
 The customer of the library can login using this end point.
 ```
-POST /auth/login
+[POST] /auth/login
 ```
 To login, the user should provide the following fields:
 | Value | Type | Description | Required |
@@ -610,7 +610,7 @@ To login, the user should provide the following fields:
 #### Logout
 The customer of the library can logout using this end point.
 ```
-POST /auth/logout
+[POST] /auth/logout
 ```
 The user will be authenticated using JWT token sent in the request header.
 ```
@@ -631,7 +631,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Get all users
 This endpoint is only allowed for librarian to query all users from the database.
 ```
-GET /users?search={keyword}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
+[GET] /users?search={keyword}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
 ```
 
 | Query | Type | Description | Required |
@@ -672,7 +672,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Get a user by id
 This endpoint is only allowed for librarian to query one specific user from the database and the customer to see his/her own profile. If the user is a librarian, s/he has to provide the ID of the user that s/he wants to query. If the user is a customer, his/her ID will be taken from his/her JWT token.
 ```
-GET /users/:userId
+[GET] /users/:userId
 ```
 
 | Param | Type | Description | Required |
@@ -698,7 +698,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Get all loans from a user
 This endpoint is only allowed for librarian to query all loans from the database or the customer to see his/her own loans. If the user is a librarian, s/he has to provide the ID of the user that s/he wants to see all of his/her loans. If the user is a customer, his/her ID will be taken from his/her JWT token.
 ```
-GET /users/:userId/loans?startDate={start_date}&endDate={end_date}&isReturned={is_returned}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
+[GET] /users/:userId/loans?startDate={start_date}&endDate={end_date}&isReturned={is_returned}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
 ```
 
 | Param | Type | Description | Required |
@@ -746,7 +746,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Get all fines from a user
 This endpoint is only allowed for librarian to query all fines from the database or the customer to see his/her own fines. If the user is a librarian, s/he has to provide the ID of the user that s/he wants to see all of his/her fines. If the user is a customer, his/her ID will be taken from his/her JWT token.
 ```
-GET /users/:userId/fines?startDate={start_date}&endDate={end_date}&isPaid={is_paid}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
+[GET] /users/:userId/fines?startDate={start_date}&endDate={end_date}&isPaid={is_paid}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
 ```
 
 | Param | Type | Description | Required |
@@ -794,7 +794,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Update a user
 This endpoint is only allowed for customer to update his/her own profile. 
 ```
-PUT /users/:userId
+[PUT] /users/:userId
 ```
 
 | Param | Type | Description | Required |
@@ -832,7 +832,7 @@ The user can update at least one field mentioned below. The fields that are not 
 #### Delete a user
 This endpoint is only allowed the user to delete his/her own account.
 ```
-DELETE /users/:userId
+[DELETE] /users/:userId
 ```
 
 | Param | Type | Description | Required |
@@ -857,7 +857,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Get all loans from all users
 This endpoint is only allowed for librarian to query all loans of all users from the database.
 ```
-GET /loans?startDate={start_date}&endDate={end_date}&isReturned={is_returned}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
+[GET] /loans?startDate={start_date}&endDate={end_date}&isReturned={is_returned}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
 ```
 
 | Query | Type | Description | Required |
@@ -903,7 +903,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Get a loan by id
 This endpoint is only allowed for librarian to query one specific loan from the database using the ID of the loan or for customer to see a selected loan only if s/he is the owner of the loan.
 ```
-GET /loans/:loanId
+[GET] /loans/:loanId
 ```
 
 | Param | Type | Description | Required |
@@ -932,7 +932,7 @@ The user will be authenticated using JWT token sent in the request header. In ca
 #### Create a loan
 This endpoint is used when the user borrows a book.
 ```
-POST /loans
+[POST] /loans
 ```
 The JWT token is required to get the user ID, and it should be sent in the request header in the following format.
 ```
@@ -967,7 +967,7 @@ The request body should contain the following fields:
 #### Update a loan
 This endpoint is used when the user wants to extends the due date for a certain book. The user can only extend the due date 10 times at most. THis end point can also be used when the user returns a book.
 ```
-PUT /loans/:loanId
+[PUT] /loans/:loanId
 ```
 
 | Param | Type | Description | Required |
@@ -1006,7 +1006,7 @@ The request body should contain the following fields:
 #### Delete a loan
 This endpoint is used by the librarian to delete a loan from the database.
 ```
-DELETE /loans/:loanId
+[DELETE] /loans/:loanId
 ```
 | Param | Type | Description | Required |
 | ----------- | ----------- | ----------- | ----------- |
@@ -1030,7 +1030,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Get all fines from all users
 This endpoint is only allowed for librarian to query all fines of all the users from the database.
 ```
-GET /fines?startDate={start_date}&endDate={end_date}&isPaid={is_paid}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
+[GET] /fines?startDate={start_date}&endDate={end_date}&isPaid={is_paid}&sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
 ```
 
 | Query | Type | Description | Required |
@@ -1080,7 +1080,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Get a fine by id
 This endpoint is only allowed for librarian to query one specific fine from the database or for the customer to see the selected fine only if s/he is the owner of that fine.
 ```
-GET /fines/:fineId
+[GET] /fines/:fineId
 ```
 
 | Param | Type | Description | Required |
@@ -1111,7 +1111,7 @@ The user will be authenticated using JWT token sent in the request header. In ca
 #### Create a fine
 This endpoint is used when the user does not return a book after the due date and is used only by the librarian.
 ```
-POST /fines
+[POST] /fines
 ```
 The user will be authenticated using JWT token sent in the request header.
 ```
@@ -1147,7 +1147,7 @@ The request body should contain the following fields:
 #### Update a fine
 This endpoint is used when the customer pays the fine.
 ```
-PUT /fines/:fineId
+[PUT] /fines/:fineId
 ```
 
 | Param | Type | Description | Required |
@@ -1188,7 +1188,7 @@ The request body should contain the following fields:
 #### Delete a fine
 This endpoint is used by the librarian to delete a fine from the database.
 ```
-DELETE /fines/:fineId
+[DELETE] /fines/:fineId
 ```
 | Param | Type | Description | Required |
 | ----------- | ----------- | ----------- | ----------- |
@@ -1212,7 +1212,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Create a review
 This endpoint is used when the user wants to review a book.
 ```
-POST /books/:bookId/reviews
+[POST] /books/:bookId/reviews
 ```
 
 | Param | Type | Description | Required |
@@ -1253,7 +1253,7 @@ The request body should contain the following fields:
 #### Update a review
 This endpoint is used when the user wants to edit his/her review.
 ```
-PUT /books/:bookId/reviews/:reviewId
+[PUT] /books/:bookId/reviews/:reviewId
 ```
 
 | Param | Type | Description | Required |
@@ -1295,7 +1295,7 @@ The request body can contain at least one of the following fields:
 #### Delete a review
 This endpoint is used when the user wants to delete his/her review.
 ```
-DELETE /books/:bookId/reviews/:reviewId
+[DELETE] /books/:bookId/reviews/:reviewId
 ```
 
 | Param | Type | Description | Required |
@@ -1321,7 +1321,7 @@ The user will be authenticated using JWT token sent in the request header. The u
 #### Get all roles
 This endpoint is only allowed for admin to query all roles from the database. The pre-defined roles are 'Librarian', 'Customer' and 'Admin'.
 ```
-GET /roles?sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
+[GET] /roles?sortBy={sorting_condition}&order={order}&perPage={results_per_page}&offset={offset}
 ```
 
 | Query | Type | Description | Required |
@@ -1356,7 +1356,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Get a role by id
 This endpoint is only allowed for admin to query one specific role from the database using its ID.
 ```
-GET /roles/:roleId
+[GET] /roles/:roleId
 ```
 | Param | Type | Description | Required |
 | ----------- | ----------- | ----------- | ----------- |
@@ -1380,7 +1380,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Create a role
 This endpoint is only allowed for admin to add a new role to the database.
 ```
-POST /roles
+[POST] /roles
 ```
 
 | Value | Type | Description | Required |
@@ -1412,7 +1412,7 @@ The user will be authenticated using JWT token sent in the request header.
 #### Update a role
 This endpoint is only allowed for admin to update a role in the database.
 ```
-PUT /roles/:roleId
+[PUT] /roles/:roleId
 ```
 
 | Param | Type | Description | Required |
@@ -1444,7 +1444,7 @@ The role name can be updated using the following request body:
 #### Delete a role
 This endpoint is only allowed for admin to delete a role from the database.
 ```
-DELETE /roles/:roleId
+[DELETE] /roles/:roleId
 ```
 
 | Param | Type | Description | Required |
