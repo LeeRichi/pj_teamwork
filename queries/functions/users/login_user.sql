@@ -6,18 +6,19 @@ RETURNS BOOLEAN
 AS $$
 DECLARE
   is_valid BOOLEAN;
+  hashed_password TEXT;
 BEGIN
-  SELECT EXISTS(
-    SELECT 1
-    FROM users
-    WHERE email = p_email
-      AND password = p_password
-  ) INTO is_valid;
+  SELECT password INTO hashed_password
+  FROM users
+  WHERE email = p_email;
 
-  RETURN is_valid;
+  IF hashed_password IS NOT NULL AND crypt(p_password, hashed_password) = hashed_password THEN
+    is_valid := TRUE;
+    RAISE NOTICE 'Login successful';
+  ELSE
+    is_valid := FALSE;
+    RAISE NOTICE 'Login fail';
+  END IF;
+
 END;
 $$ LANGUAGE plpgsql;
-
-
-
-SELECT login_user('johndoe@example.com', 'pass123');

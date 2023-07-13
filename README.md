@@ -115,6 +115,6 @@ Designing REST API endpoints and database schema
    - Register, authenticate,update, delete users:white_check_mark:
    - CRUD operations for reviews:white_check_mark:
    - Borrow/return books or place/cancel/ship oder for products:white_check_mark:
-   - Get the most 10 borrows or bought books or products
-   - All the update operation should have limitations on which properties can be updated
+   - Get the most 10 borrows or bought books or products:white_check_mark:
+   - All the update operation should have limitations on which properties can be updated:white_check_mark:
    - Some endpoints should be allowed for certain users only(only admin):white_check_mark:
